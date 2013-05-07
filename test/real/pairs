@@ -1,0 +1,208 @@
+Mayor,Mechanic
+Mayor,Mayor
+Mayor,Engineer
+Assistant,Architect
+Assistant,Sheriff
+Landscaper,Deputy
+Mechanic,Engineer
+Farmer,Farmer
+Sheriff,Landscaper
+Mechanic,Police Officer
+Engineer,Gardener
+Engineer,Nurse
+Homemaker,Gardener
+Sheriff,Sheriff
+Park Ranger,Doctor
+Farmer,Gardener
+Botanist,Vet
+Engineer,Assistant
+Farmer,Plumber
+Sheriff,Vet
+Farmer,Animal Trainer
+Architect,Dreamer
+Mechanic,Artist
+Doctor,Artist
+Doctor,Photographer
+Homemaker,Fishmonger
+Artist,Cook
+Animal Trainer,Park Ranger
+Mechanical Engineer,Deputy
+Mechanical Engineer,Artist
+Construction Worker,Farmer
+Farmer,Salesman
+Architect,Artist
+Athlete,Fishmonger
+Artist,Construction Worker
+Homemaker,Salesman
+Car Designer,Hotel Manager
+Valet,Mechanic
+Pilot,Waiter
+Mechanical Engineer,Pilot
+Artist,Salesman
+Salesman,Salesman
+Animal Trainer,Valet
+Vet,Olympic Swimmer
+Architect,Salesman
+Police Officer,Explorer
+Cook,Assistant
+Dreamer,Dreamer
+Police Officer,Philosopher
+Sheriff,Salesman
+Soldier,Olympic Swimmer
+Lawyer,Sheriff
+Mayor,Deputy
+Secretary,Dreamer
+Writer,Dreamer
+Police Officer,Doctor
+Olympic Swimmer,Paramedic
+Photographer,Lifeguard
+Model,Olympic Swimmer
+Detective,Writer
+Athlete,Artist
+Ballet Dancer,Soldier
+Chef,Martial Artist
+Cook,Reporter
+Marine,Soldier
+Director,Model
+Architect,Pilot
+Writer,Artist
+Photographer,Mechanic
+Athlete,Ballet Dancer
+Athlete,Athlete
+Mailman,Salesman
+Cameraman,Cameraman
+Farmer,Botanist
+Farmer,Soldier
+Reporter,Valet
+Grave Digger,Explorer
+Jockey,Animal Trainer
+Mailman,General
+Actor,Martial Artist
+Mathematician,Engineer
+Programmer,Artist
+Philosopher,Scientist
+Philosopher,Engineer
+Scientist,Mathematician
+Physicist,Dreamer
+Pilot,Astronomer
+Scientist,Doctor
+Zookeeper,Detective
+Secretary,Mathematician
+Writer,Writer
+Writer,Poet
+Philosopher,Librarian
+Historian,Explorer
+Soldier,Geneticist
+Radiologist,General
+Preacher,Weather Reporter
+Ballet Dancer,Director
+Doctor,Salesman
+Detective,Photographer
+Detective,Scientist
+Athlete,Doctor
+Grave Digger,Doctor
+Grave Digger,Super Hero
+Athlete,Actor
+Comic,Painter
+Archaeologist,Cryptozoologist
+Miner,Scientist
+Ballet Dancer,Rapper
+Fishmonger,Sheriff
+Reporter,Geologist
+Actor,Poet
+Jockey,Choreographer
+Captain,Deputy
+Captain,Explorer
+Philosopher,Dreamer
+Poet,Disc Jockey
+Secretary,Model
+Poet,Poet
+Vet,Coroner
+Songwriter,Actor
+Mechanic,Mechanic
+Athlete,Cheerleader
+Animal Trainer,Milkmonger
+Farmer,Dreamer
+Cook,Homemaker
+Shepherd,Homemaker
+Plumber,Construction Worker
+Martial Artist,Soldier
+Coach,Judge
+Ninja,Detective
+Martial Artist,Philosopher
+Marine Biologist,Explorer
+Historian,Mechanic
+Watchmaker,Explorer
+Model,Artist
+Animal Trainer,Clown
+Philosopher,Preacher
+Animal Trainer,Wrestler
+Accountant,Accountant
+Winemaker,Salesman
+Bartender,Waiter
+Magician,Scientist
+Wizard,Assistant
+Programmer,Programmer
+Magician,Magician
+Winemaker,Baker
+Mutant,Jockey
+Romantic,Vocalist
+Romantic,Miner
+Romantic,Baker
+Romantic,Engineer
+Jeweller,Chocolatier
+Bureaucrat,General
+Bureaucrat,Secretary
+Assistant,Civil Servant
+Bureaucrat,Salesman
+Secret Agent,Politician
+Musician,Sheriff
+Musician,Watchmaker
+Guitarist,Deputy
+Musician,Songwriter
+Musician,Programmer
+Guitarist,Bassist
+Programmer,Sports Star
+Sports Star,Greengrocer
+Sports Star,Carpenter
+Sports Star,Actor
+Sports Star,Sports Star
+Sports Star,Bartender
+Golfer,Philosopher
+Sports Star,Valet
+Caddie,Cheerleader
+Jack Frost,Ballet Dancer
+Figure Skater,Mountain Climber
+Jack Frost,Miner
+Fishmonger,Figure Skater
+Foodie,Courier
+Foodie,Winemaker
+Foodie,Jack Frost
+Sommelier,Chef
+Sommelier,Valet
+Socialite,Doctor
+Cosmetic Surgeon,Romantic
+Socialite,Bodybuilder
+Socialite,Animal Trainer
+Party Animal,Mathematician
+Gambler,Valet
+Gambler,Industrialist
+Strongman,Model
+Bodybuilder,Guru
+Bodybuilder,Sushi Chef
+Sumo Wrestler,Soldier
+Gym Instructor,Athlete
+Gym Instructor,Martial Artist
+Gymnast,Ringmaster
+Guru,Scientist
+Guru,Actor
+Talkshow Host,Reporter
+Guru,Programmer
+Tour Guide,Pilot
+Hitch Hiker,Salesman
+Hitch Hiker,Courier
+Cyclist,Skier
+Hitch Hiker,Guru
+Travel Agent,Astronaut
+Cyclist,Sheriff
+Tour Guide,Travel Agent
