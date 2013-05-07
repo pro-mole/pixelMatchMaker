@@ -1,0 +1,38 @@
+Extracting the maximum number of 2-subgraphs in a graph (AKA the Pixel People Matchmaker Problem)
+
+Given:
+	Set of Vertices V = {A, B, C...}
+	Set of Edges E = {V1, V2, V3...}
+		where Vx = (X1, X2) where X1, X2 in V
+		and Vx = (X1,X2) = (X2,X1)
+	Graph G = (V, E)
+
+Solution:
+	S = (V, Es) where
+		Es is a subset of E
+		and for each v in V, 0 <= |v| <= 1 {each vertex has at most one connection, thus: the biggest clique in this graph has size 2}
+	Optimality: minimum number of v in V where |v| = 0
+	{i.e. the minimum number of vertices is left unconnected out of the solution graph}
+	
+Try 1: Heuristic Up This Shit
+
+Iteratively
+	Compute |v| for each v in V
+	Remove v from V where |v| = 0 {remove all nodes that connect to no one}
+	Pick a vertex v0 with minimum |v0| > 0
+	Loop:
+		Pick a vertex vi in V with minimum |vi| > 0 other than v0
+		if (v0, vi) exists in E, STOP
+	Add (v0,vi) to Es
+	Remove all edges that contain v0 or vi from E
+
+Informal Proof:
+In the end of the solution, for every v in V we have that:
+	- |v| = 0 if v was already unconnected in the original graph(it'll be removed in the first iteration)
+	- |v| = 1 if v connected to any other vertex. |v| > 1 is false because if an edge that contains v is added to Es, then all other edges that contain v will be removed before the next iteration
+
+Optimality?
+Probably not. The algorithm works by reducing cardinality in the trial graph, trying to tackle nodes that have less possible connections first. It is possible that, due to lousy ordering, the solution picks all the nodes that connect to others wirh high connectivity and in the end it discards a load of nodes that could be used in a better way. This is a heuristic, though, so it is not forced to give the BEST result right away
+
+Proposed Optimization:
+Add a random component to the ordering of the vertex set in the "pick" steps so that the solution won't end up always taking the same node every time; run the algorithm several times and pick the best solution of the lot. (Yes, it is inefficient; but it might be )
