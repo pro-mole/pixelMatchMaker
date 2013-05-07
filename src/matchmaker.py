@@ -4,6 +4,7 @@
 #But that was way troublesom. Let's just refer to the things as they are in the game
 import sys
 import re
+import random
 
 #Computation Functions
 
@@ -26,6 +27,13 @@ def cardinality(V,E):
         C[e[1]] += 1
 
     return C
+
+#Get edge count for vertex or vertices
+def edge_count(E,A):
+    return len([e for e in E if e[0] == A or e[1] == A])
+
+def edge_count(E,A,B):
+    return len([e for e in E if e == (A,B) or e == (B,A)])
 	
 #Solve the problem for graph G = (V,E)
 # Return: the solution graph (Vs, Es)
@@ -38,19 +46,19 @@ def solve_heurist1(V,E):
     
     #Initial purge
     card = cardinality(Vt,Et)
-    print card
+    #print card
     for v in [k for k,v in card.iteritems() if v == 0]:
         Vs.append(v)
         card.pop(v)
         V.remove(v)
     
     while len(Vt) > 0:
-        v1 = pick(card)
+        v1 = pickrandom(card)
         Vt.remove(v1)
         Vs.append(v1)
         
         for v2 in Vt:
-            if len([e for e in Et if e == (v1,v2) or e == (v2,v1)]) > 0:
+            if edge_count(Et,v1,v2) > 0:
                 Vs.append(v2)
                 Es.append((v1,v2))
                 Vt.remove(v2)
@@ -58,7 +66,7 @@ def solve_heurist1(V,E):
                     Et.remove(e)
         
         card = cardinality(Vt,Et)
-        print card
+        #print card
         for v in [k for k,v in card.iteritems() if v == 0]:
             Vs.append(v)
             card.pop(v)
@@ -68,11 +76,19 @@ def solve_heurist1(V,E):
 
 #Pick vertex from cardinality set
 def pick(C):
-    print sorted(C, key=C.get)
+    #print sorted(C, key=C.get)
     return sorted(C, key=C.get)[0]
     
+#Pick vertex from cardinality set, deciding randomly on the minimum set of vertexes
+#i.e., don't always pick the same vertex among the ones with minimum cardinality
+def pickrandom(C):
+    min = C[sorted(C, key=C.get)[0]]
+    _C = [c for c in C.iterkeys() if C[c] == min]
+    
+    return random.choice(_C)
+
 dataset = sys.argv[1]
-print dataset
+#print dataset
 
 pairs = open(dataset+"/pairs","r")
 query = open(dataset+"/query","r")
@@ -100,7 +116,7 @@ for pair in pairs.readlines():
     if compatibility.count(T) + compatibility.count(_T) == 0:
         compatibility.append(T)
         
-print compatibility
+#print compatibility
 
 #Read query, generate query set
 for q in query.readlines():
@@ -108,19 +124,25 @@ for q in query.readlines():
 
 query_set = list(enumerate(query_set))
 
-print query_set
+#print query_set
 
 #Apply compatibility set on query, generate the query graph
 for P in compatibility:
     v1,v2 = P
     for A in [(i,Q) for i,Q in query_set if Q == v1]:
         for B in [(i,Q) for i,Q in query_set if Q == v2]:
-            query_graph.append((A,B))
+            if (A != B) and edge_count(query_graph,A,B) == 0:
+                query_graph.append((A,B))
 
-print query_graph
-print cardinality(query_set, query_graph)
+#print query_graph
+#print cardinality(query_set, query_graph)
 
 print "Start Solution:"
 solution = solve_heurist1(query_set, query_graph)
-print solution
-print optimality(solution[0], solution[1])
+for v in solution[0]:
+    print "{0}: {1}".format(v[0], v[1])
+print
+for e in solution[1]:
+    print "{0} <-> {1}".format(e[0][0],e[1][0])
+print
+print "Optimality: {0}".format(optimality(solution[0], solution[1]))
