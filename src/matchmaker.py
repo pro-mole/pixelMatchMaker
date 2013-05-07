@@ -13,7 +13,7 @@ query = open(dataset+"/query","r")
 
 #Compatibility Set
 # The professions, laid out in compatible pairs
-prof_graph = []
+compatibility = []
 
 #Query Set
 # The set of vertices of the query graph
@@ -31,10 +31,10 @@ solution=[]
 for pair in pairs.readlines():
     T = tuple(str(P) for P in re.findall("[A-Za-z ]+",pair))
     _T = T[1], T[0]
-    if prof_graph.count(T) + prof_graph.count(_T) == 0:
-        prof_graph.append(T)
+    if compatibility.count(T) + compatibility.count(_T) == 0:
+        compatibility.append(T)
         
-print prof_graph
+print compatibility
 
 #Read query, generate query set
 for q in query.readlines():
@@ -42,4 +42,4 @@ for q in query.readlines():
 
 print query_set
 
-#Applu compatibility set on query, generate the query graph
+#Apply compatibility set on query, generate the query graph
