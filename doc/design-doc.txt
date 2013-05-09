@@ -35,4 +35,7 @@ Optimality?
 Probably not. The algorithm works by reducing cardinality in the trial graph, trying to tackle nodes that have less possible connections first. It is possible that, due to lousy ordering, the solution picks all the nodes that connect to others wirh high connectivity and in the end it discards a load of nodes that could be used in a better way. This is a heuristic, though, so it is not forced to give the BEST result right away
 
 Proposed Optimization:
-Add a random component to the ordering of the vertex set in the "pick" steps so that the solution won't end up always taking the same node every time; run the algorithm several times and pick the best solution of the lot. (Yes, it is inefficient; but it might be )
+Add a random component to the ordering of the vertex set in the "pick" steps so that the solution won't end up always taking the same node every time; run the algorithm several times and pick the best solution of the lot. (Yes, it is inefficient; but it might be effective!)
+
+So Far...
+So far, it's awesome. The first tests, which obviously are pretty small, are giving really good results. I still have no idea how it'll work for the actual test case or just randomly generated cases. If things turn really ugly really fast, well...
