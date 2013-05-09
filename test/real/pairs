@@ -1,13 +1,13 @@
 Mayor,Mechanic
-Mayor,Mayor
-Mayor,Engineer
+#Mayor,Mayor
+#Mayor,Engineer
 Assistant,Architect
 Assistant,Sheriff
 Landscaper,Deputy
-Mechanic,Engineer
+#Mechanic,Engineer
 Farmer,Farmer
 Sheriff,Landscaper
-Mechanic,Police Officer
+#Mechanic,Police Officer
 Engineer,Gardener
 Engineer,Nurse
 Homemaker,Gardener
@@ -20,7 +20,7 @@ Farmer,Plumber
 Sheriff,Vet
 Farmer,Animal Trainer
 Architect,Dreamer
-Mechanic,Artist
+#Mechanic,Artist
 Doctor,Artist
 Doctor,Photographer
 Homemaker,Fishmonger
@@ -35,7 +35,7 @@ Athlete,Fishmonger
 Artist,Construction Worker
 Homemaker,Salesman
 Car Designer,Hotel Manager
-Valet,Mechanic
+#Valet,Mechanic
 Pilot,Waiter
 Mechanical Engineer,Pilot
 Artist,Salesman
@@ -50,7 +50,7 @@ Police Officer,Philosopher
 Sheriff,Salesman
 Soldier,Olympic Swimmer
 Lawyer,Sheriff
-Mayor,Deputy
+#Mayor,Deputy
 Secretary,Dreamer
 Writer,Dreamer
 Police Officer,Doctor
@@ -66,7 +66,7 @@ Marine,Soldier
 Director,Model
 Architect,Pilot
 Writer,Artist
-Photographer,Mechanic
+#Photographer,Mechanic
 Athlete,Ballet Dancer
 Athlete,Athlete
 Mailman,Salesman
@@ -119,7 +119,7 @@ Secretary,Model
 Poet,Poet
 Vet,Coroner
 Songwriter,Actor
-Mechanic,Mechanic
+#Mechanic,Mechanic
 Athlete,Cheerleader
 Animal Trainer,Milkmonger
 Farmer,Dreamer
@@ -131,7 +131,7 @@ Coach,Judge
 Ninja,Detective
 Martial Artist,Philosopher
 Marine Biologist,Explorer
-Historian,Mechanic
+#Historian,Mechanic
 Watchmaker,Explorer
 Model,Artist
 Animal Trainer,Clown
