@@ -29,12 +29,12 @@ def cardinality(V,E):
     return C
 
 #Get edge count for vertex or vertices
-def edge_count(E,A):
-    return len([e for e in E if e[0] == A or e[1] == A])
+def edge_count(E,A,B=None):
+    if (B == None):
+        return len([e for e in E if e[0] == A or e[1] == A])
+    else:
+        return len([e for e in E if e == (A,B) or e == (B,A)])
 
-def edge_count(E,A,B):
-    return len([e for e in E if e == (A,B) or e == (B,A)])
-	
 #Solve the problem for graph G = (V,E)
 # Return: the solution graph (Vs, Es)
 def solve_heurist1(V,E):
@@ -47,10 +47,11 @@ def solve_heurist1(V,E):
     #Initial purge
     card = cardinality(Vt,Et)
     #print card
+    
     for v in [k for k,v in card.iteritems() if v == 0]:
         Vs.append(v)
         card.pop(v)
-        V.remove(v)
+        Vs.remove(v)
     
     while len(Vt) > 0:
         v1 = pickrandom(card)
@@ -82,8 +83,8 @@ def pick(C):
 #Pick vertex from cardinality set, deciding randomly on the minimum set of vertexes
 #i.e., don't always pick the same vertex among the ones with minimum cardinality
 def pickrandom(C):
-    min = C[sorted(C, key=C.get)[0]]
-    _C = [c for c in C.iterkeys() if C[c] == min]
+    _min = C[sorted(C, key=C.get)[0]]
+    _C = [c for c in C.iterkeys() if C[c] == _min]
     
     return random.choice(_C)
 
@@ -111,7 +112,7 @@ solution=[]
 
 #Read pairs, generate compatibility set
 for pair in pairs.readlines():
-    T = tuple(str(P) for P in re.findall("[A-Za-z ]+",pair))
+    T = tuple(str(P) for P in re.findall("[A-Za-z0-9# ]+",pair))
     _T = T[1], T[0]
     if compatibility.count(T) + compatibility.count(_T) == 0:
         compatibility.append(T)
@@ -120,7 +121,8 @@ for pair in pairs.readlines():
 
 #Read query, generate query set
 for q in query.readlines():
-    query_set.append(q.strip())
+    if q.strip() != "":
+        query_set.append(q.strip())
 
 query_set = list(enumerate(query_set))
 
@@ -143,6 +145,18 @@ for v in solution[0]:
     print "{0}: {1}".format(v[0], v[1])
 print
 for e in solution[1]:
-    print "{0} <-> {1}".format(e[0][0],e[1][0])
+    print "{0}({1}) <-> {2}({3})".format(e[0][1],e[0][0],e[1][1],e[1][0])
 print
+
+lonely = []
+leftout = []
+
+for i in solution[0]:
+    if edge_count(query_graph,i) == 0:
+        lonely.append(i)
+        continue
+    if edge_count(solution[1],i) == 0:
+        leftout.append(i)
+
+print "Pairs: {0}".format(len(solution[1]))
 print "Optimality: {0}".format(optimality(solution[0], solution[1]))
