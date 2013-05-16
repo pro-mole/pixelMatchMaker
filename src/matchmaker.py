@@ -29,11 +29,11 @@ def cardinality(V,E):
     return C
 
 #Get edge count for vertex or vertices
-def edge_count(E,A):
-    return len([e for e in E if e[0] == A or e[1] == A])
-
-def edge_count(E,A,B):
-    return len([e for e in E if e == (A,B) or e == (B,A)])
+def edge_count(E,A,B=None):
+    if B == None:
+        return len([e for e in E if e[0] == A or e[1] == A])
+    else:
+        return len([e for e in E if e == (A,B) or e == (B,A)])
 	
 #Solve the problem for graph G = (V,E)
 # Return: the solution graph (Vs, Es)
@@ -144,8 +144,26 @@ def solve(pairs, query):
     #print
     #print "Optimality: {0}".format(optimality(solution[0], solution[1]))
     
-    return(solution, optimality(solution[0], solution[1]))
+    return(solution, optimality(solution[0], solution[1]), compatibility)
 
 if __name__ == '__main__':
     if len(sys.argv) > 2:
-        solve(open(sys.argv[1],"r"),open(sys.argv[2],"r"))
+        solution = solve(open(sys.argv[1],"r"),open(sys.argv[2],"r"))
+    else:
+        if len(sys.argv) > 1:
+            solution = solve(open(sys.argv[1]+"/pairs","r"),open(sys.argv[1]+"/query","r"))
+    
+    V = solution[0][0]
+    E = solution[0][1]
+    P = solution[2]
+    for e in E:
+        print "{0} <-> {1}".format(e[0][1],e[1][1])
+    
+    print "\nRemaining {0} nodes:".format(solution[1])
+    for v in [(i,N) for i,N in V if edge_count(E,(i,N)) == 0]:
+        suggestion = []
+        for p in [p for p,N in P if N == v[1]]:
+            suggestion.append(p)
+        for p in [p for N,p in P if N == v[1]]:
+            suggestion.append(p)
+        print "{0}: {1}".format(v[1], suggestion)
